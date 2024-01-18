@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>템프릿 리터럴</title>
+</head>
+<body>
+    
+
+    <script>
+        const dog = '강아지'
+        const cat = `고양이`
+        console.log(typeof cat)
+
+        const modifier = "귀여운"
+        const prettyDog = `${modifier}   우리  집     ${dog}`
+        console.log(prettyDog)
+
+
+        const prettyPet = `${modifier}   우리  집     ${prompt("우리집강아지이름")}`
+        prompt("좋아하는 동물은?")
+
+    </script>
+</body>
+</html>
