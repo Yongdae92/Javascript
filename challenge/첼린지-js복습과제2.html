@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문 - 성적표</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>다음 조건에 맞게 코드를 작성해주세요</h1>
+        <h2>조건 :<br>1. 입력창을 띄워 사용자의 0 ~ 100점의 숫자를 받는다.</h2>
+        <table border="1">
+   
+            <thead>
+                <tr>
+                <th>90점이상</th>
+                <th>80~89점</th>
+                <th>70~79점</th>
+                <th>60~69점</th>
+                <th>60점미만</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>D</td>
+                <td>E</td>
+            </tr>
+            </tbody>
+        </table>
+        <h2>2. 입력 받은 점수에 맞는 성적의 등급을 나눈다.</h2>
+        <h2>3. 나의 기말고사 점수는 __점, 학점은 ___!!!</h2>
+        <hr>
+    </div>    
+
+
+
+
+    <script>
+        const jumsoo = prompt("중간고사 점수를 입력하세요.")
+ 
+
+        if(jumsoo < 60){
+            const container = document.getElementById("container")
+            const f = document.createElement("p")
+            f.textContent = `나의 기말고사 점수는 ${jumsoo}점, 학점은 F!!!`
+            container.appendChild(f)
+        }
+        
+        else if(jumsoo < 70){
+            const container = document.getElementById("container")
+            const d = document.createElement("p")
+            d.textContent = `나의 기말고사 점수는 ${jumsoo}점, 학점은 D!!!`
+            container.appendChild(d)
+        }
+
+        else if(jumsoo < 80){
+            const container = document.getElementById("container")
+            const c = document.createElement("p")
+            c.textContent = `나의 기말고사 점수는 ${jumsoo}점, 학점은 C!!!`
+            container.appendChild(c)
+        }
+
+        else if(jumsoo < 90){
+            const container = document.getElementById("container")
+            const b = document.createElement("p")
+            b.textContent = `나의 기말고사 점수는 ${jumsoo}점, 학점은 B!!!`
+            container.appendChild(b)
+        }
+
+        else if(jumsoo <= 100){
+            const container = document.getElementById("container")
+            const a = document.createElement("p")
+            a.textContent = `나의 기말고사 점수는 ${jumsoo}점, 학점은 A!!!`
+            container.appendChild(a)
+        }
+
+        else{
+            alert("정환한 점수를 입력해주세요~!")
+        }
+
+    </script>
+</body>
+</html>
