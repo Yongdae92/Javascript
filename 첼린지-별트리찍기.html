@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>별트리 찍기</title>
+</head>
+<body>
+    <div id="container">
+        <h1>별 트리 찍기</h1>
+    </div>
+
+
+
+    <script>
+        const container = document.getElementById("container")
+        const first = document.createElement("p")
+        const second = document.createElement("p")
+        const third = document.createElement("p")
+        first.textContent = "1번 별"
+        second.textContent = "2번 별"
+        third.textContent = "3번 별"
+
+        
+        container.appendChild(first)
+        for (i = 1; i <= 5; i ++){
+            const p = document.createElement("p")
+            p.textContent = "*".repeat(i)
+            container.appendChild(p)
+        }
+        
+        container.appendChild(second)
+        for (i = 1; i <= 5; i ++){
+            const p = document.createElement("p")
+            p.textContent = "*".repeat(i)
+            container.appendChild(p)
+        }
+        for (i = 5; i >= 0; i --){
+            const p = document.createElement("p")
+            p.textContent = "*".repeat(i)
+            container.appendChild(p)
+        }
+        
+        container.appendChild(third)
+        let n = 5;
+        for (let i = 1; i <= n; i ++){
+            document.write('&nbsp'.repeat(n-i) + '*'.repeat(2*i -1)+"<br>")
+        }
+
+        for (let i = n - 1; i > 0; i --){
+            document.write('&nbsp'.repeat(n-i) + '*'.repeat(2*i -1)+"<br>")
+        }
+        
+    </script>
+</body>
+</html>
