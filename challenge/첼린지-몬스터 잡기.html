@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+
+
+
+
+
+    <script>
+        // 몬스터 피, 공격횟수, 기본 문구 생성!
+        let monsterHP = 100     
+        let monsterAttack = 0
+        const container = document.getElementById("container")
+        const h1 = document.createElement("h1")
+        h1.textContent = "몬스터 잡기 게임을 시작합니다!!"
+        container.appendChild(h1)
+
+        // 공격 데미지 지정 - 프롬프트로 사용자 데미지 입력 가능
+        const monsterDamage = parseInt(prompt("몬스터의 데미지는? (정수로만)"))
+
+        // 반복 공격, 횟수 증가, 데미지 0일 때 동작 멈추고 마무리 멘트.
+        if(monsterDamage > 0){
+            while(monsterHP > 0){
+                monsterHP -= monsterDamage
+                monsterAttack += 1
+
+                if(monsterHP < 0){
+                    monsterHP = 0
+                }
+
+                const p = document.createElement("p")
+                p.textContent = `몬스터를 ${monsterAttack}회 공격했다!!`
+                container.appendChild(p)
+
+                const strong = document.createElement("strong")
+                strong.textContent = `몬스터의 남은 HP는 ${monsterHP}입니다!!`
+                container.appendChild(strong)
+            } 
+
+            monsterHP == 0
+            const h2 = document.createElement("h2")
+            h2.textContent = "몬스터를 잡았습니다! 수고하셨습니다~!"
+            h2.style.color = "gold"
+            h2.title = "새로 게임을 하고싶다면 새로고침하세요."
+            container.append(h2)
+            }
+        
+        // 공격 데미지가 음수이거나, 문자열이면 게임실행 불가.
+        else{
+            alert("데미지를 잘못 입력하였습니다!")
+        }
+        
+    </script>
+</body>
+</html>
+
+

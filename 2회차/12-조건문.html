@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문</title>
+</head>
+<body>
+    <h1></h1>
+    <p></p>
+
+
+    <script>
+        const h1 = document.querySelector("h1")
+        const p = document.querySelector("p")
+
+
+         /*
+        const isThere = confirm("제목 표시를 할까요?")
+
+        
+        if(isThere){
+            h1.textContent = "True!!"
+        }else{
+            h1.textContent = "False!!"
+        }
+        */
+
+        const age = parseInt(prompt("나이가 어떻게 되세요?"))
+
+        if(age >= 20){
+            p.textContent = "성인이네요?"
+        }else if(age >= 8){
+            p.textContent = "미성년자네요!!"
+        }else{
+            p.textContent = "애기네요?"
+        }
+    </script>
+</body>
+</html>
