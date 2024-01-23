@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1.0">
+    <title>Click MyCalculator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+
+        #calculator {
+            background-color: skyblue;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #screen {
+            background-color: white;
+            margin-bottom: 10px;
+            width: 100%;
+            height: 30px;
+            text-align: right;
+            font-size: 18px;
+            padding: 5px;
+        }
+
+        button {
+            width: 50px;
+            height: 50px;
+            font-size: 18px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background-color: #f0f0f0;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #d9d9d9;
+        }
+
+        button.operator {
+            background-color: #f09090;
+        }
+
+        button.operator:hover {
+            background-color: #d67c7c;
+        }
+    </style>
+</head>
+<body>
+    <div id="calculator">
+        <h3>Click MyCalculator</h3>
+        <div id="screen"></div>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button class="operator">X</button>
+        <br>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button class="operator">/</button>
+        <br>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button class="operator">-</button>
+        <br>
+        <button>C</button>
+        <button>0</button>
+        <button class="operator">+</button>
+        <button class="operator">=</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const screen = document.getElementById("screen");
+            const buttons = document.querySelectorAll("button");
+            let expression = "";
+    
+            buttons.forEach(button => {
+                button.addEventListener("click", function () {
+                    const buttonText = this.innerText;
+    
+                    if (buttonText === "=") {
+                        try {
+                            expression = parseFloat(eval(expression.replace(/X/g, "*")).toFixed(10));
+                            screen.innerText = expression;
+                        } catch (error) {
+                            screen.innerText = "Error";
+                        }
+                    } else if (buttonText === "C") {
+                        expression = "";
+                        screen.innerText = "";
+                    } else {
+                        expression += buttonText;
+                        screen.innerText = expression;
+                    }
+                });
+            });
+        });
+    </script>
+    
+</body>
+</html>
