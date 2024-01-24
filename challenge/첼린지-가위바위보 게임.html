@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>가위바위보 게임</h1>
+    <p>가위, 바위, 보 중 하나를 입력하세요:</p>
+    <input type="text" id="userChoice" placeholder="뭐낼거에요?">
+    <button type="button" id="resultBtn">결과 확인</button>
+    <p id="result"></p>
+
+    <script>
+        const resultBtn = document.getElementById("resultBtn");
+        const resultText = document.getElementById("result");
+        const userChoiceInput = document.getElementById("userChoice");
+
+        resultBtn.addEventListener("click", function() {
+            const userChoice = userChoiceInput.value;
+            const choices = ['가위', '바위', '보'];
+            const computerChoice = choices[Math.floor(Math.random() * 3)];
+
+            if (userChoice === computerChoice) {
+                resultText.innerText = '비겼습니다!';
+            } else if (
+                (userChoice === '가위' && computerChoice === '보') ||
+                (userChoice === '바위' && computerChoice === '가위') ||
+                (userChoice === '보' && computerChoice === '바위')
+            ) {
+                resultText.innerText = '당신이 이겼습니다!';
+            } else {
+                resultText.innerText = '당신이 졌습니다!';
+            }
+
+            resultText.innerText += ` 사용자: ${userChoice}, 컴퓨터: ${computerChoice}`;
+        });
+    </script>
+</body>
+</html>
